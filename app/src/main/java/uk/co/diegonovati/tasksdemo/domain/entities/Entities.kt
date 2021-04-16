@@ -24,7 +24,13 @@ data class Task(
     val name: String,
     val description: String,
     val type: TaskType
-)
+) : Comparable<Task> {
+    override fun compareTo(other: Task): Int = when {
+        id < other.id -> -1
+        id > other.id -> 1
+        else -> 0
+    }
+}
 
 fun TaskModel.toTask(): Task = Task(
     id = this.id,

@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">TasksDemo</string>
+    <string name="appName">Tasks Demo</string>
+
+    <string name="componentTitleBarTitle">Tasks</string>
+
+    <string name="titleError">Error</string>
+    <string name="titleDeviceDisconnected">Device Offline</string>
+    <string name="descriptionLastUpdate">Last data update: {0}</string>
+    <string name="errorNoData">Device offline and no cached data</string>
 </resources>

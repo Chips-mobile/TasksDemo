@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ComponentButtonFilter">
+        <attr name="filterType" format="enum">
+            <enum name="type_general" value="0" />
+            <enum name="type_hydration" value="1" />
+            <enum name="type_medication" value="2" />
+            <enum name="type_nutrition" value="3" />
+        </attr>
+        <attr name="active" format="boolean" />
+    </declare-styleable>
+</resources>

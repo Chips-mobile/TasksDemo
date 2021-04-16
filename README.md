@@ -38,3 +38,5 @@ The OkHttp libraries logs the communication with the backend when not in 'releas
 Room has been used to persist the data received from the remote service.
 
 As an alternative to the database, the local data can be saved as a shared preference (just updating the dependencies in the AppModule file)  
+
+The current implementation of Room is for demonstration purpose only: the data could be saved as json string in a single line of a single table

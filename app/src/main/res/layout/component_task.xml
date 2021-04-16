@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/componentTaskImage"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/type_medication" />
+
+    <TextView
+        android:id="@+id/componentTaskName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/componentTaskImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="5 ml Azopt 10mg/1ml" />
+
+    <TextView
+        android:id="@+id/componentTaskDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/textRegularColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/componentTaskName"
+        app:layout_constraintTop_toBottomOf="@+id/componentTaskName"
+        tools:text="Instil one drop to both eyes at the morning. Put on by HM checked by VH. This is now only to be put in in the morning as the private carer will instil at lunch time"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

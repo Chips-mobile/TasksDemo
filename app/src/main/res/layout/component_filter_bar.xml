@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_top">
+
+    <uk.co.diegonovati.tasksdemo.presentation.components.ComponentButtonFilter
+        android:id="@+id/componentButtonFilterButtonGeneral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:active="true"
+        app:filterType="type_general"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/componentButtonFilterButtonMedication"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <uk.co.diegonovati.tasksdemo.presentation.components.ComponentButtonFilter
+        android:id="@+id/componentButtonFilterButtonMedication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:active="true"
+        app:filterType="type_medication"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/componentButtonFilterButtonHydration"
+        app:layout_constraintStart_toEndOf="@+id/componentButtonFilterButtonGeneral"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <uk.co.diegonovati.tasksdemo.presentation.components.ComponentButtonFilter
+        android:id="@+id/componentButtonFilterButtonHydration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:active="true"
+        app:filterType="type_hydration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/componentButtonFilterButtonNutrition"
+        app:layout_constraintStart_toEndOf="@+id/componentButtonFilterButtonMedication"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <uk.co.diegonovati.tasksdemo.presentation.components.ComponentButtonFilter
+        android:id="@+id/componentButtonFilterButtonNutrition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:active="true"
+        app:filterType="type_nutrition"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/componentButtonFilterButtonHydration"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
