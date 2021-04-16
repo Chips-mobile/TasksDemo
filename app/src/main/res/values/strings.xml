@@ -3,6 +3,12 @@
 
     <string name="componentTitleBarTitle">Tasks</string>
 
+    <string name="componentTaskImage">Task type</string>
+    <string name="taskTypeGeneral">General</string>
+    <string name="taskTypeHydration">Hydration</string>
+    <string name="taskTypeMedication">Medication</string>
+    <string name="taskTypeNutrition">Nutrition</string>
+
     <string name="titleError">Error</string>
     <string name="titleDeviceDisconnected">Device Offline</string>
     <string name="descriptionLastUpdate">Last data update: {0}</string>

@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.diegonovati.tasksdemo.R
 import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 

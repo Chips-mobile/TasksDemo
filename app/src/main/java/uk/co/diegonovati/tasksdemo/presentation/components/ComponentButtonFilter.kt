@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.component_button_filter.view.*
 import uk.co.diegonovati.tasksdemo.R
 import uk.co.diegonovati.tasksdemo.domain.entities.TaskType
+import uk.co.diegonovati.tasksdemo.presentation.extensions.toContentDescription
 import uk.co.diegonovati.tasksdemo.presentation.extensions.toResId
 
 typealias OnChangeActive = (Boolean) -> Unit
@@ -14,12 +15,11 @@ typealias OnChangeActive = (Boolean) -> Unit
 class ComponentButtonFilter
 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0): LinearLayout(context, attrs, defStyleAttr) {
 
-    // The type can be changed programmatically
     fun setTaskType(taskType: TaskType) {
         componentButtonFilterImage.setImageResource(taskType.toResId())
+        componentButtonFilterImage.contentDescription = taskType.toContentDescription(context)
     }
 
-    // The status can be changed programmatically
     fun setActive(active: Boolean) {
         this.currentActive = active
 

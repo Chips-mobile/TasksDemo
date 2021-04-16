@@ -55,4 +55,12 @@ The status of the connection is displayed on the left side in the title bar:
   - dot green: the device is online, connected to internet
   - dot red: the device is offline, disconnected from internet
  
- If you refresh the data while the device is offline, a banner will appear containing the message that the device is offline and the last update time of the data displayed (data coming from the cache, of course) 
+ If you refresh the data while the device is offline, a banner will appear containing the message that the device is offline and the last update time of the data displayed (data coming from the cache, of course)
+ 
+ ### Kotlin synthetics
+ The app is using 'Kotlin synthetics' to access the XML views even if it has been deprecated in favor of 'Jetpack view binding'. 
+ Because in few months we need to start the migration to the released version of 'Jetpack Compose' at this stage we do't need
+ to worrier about this deprecation.
+ 
+ Reference: https://developer.android.com/topic/libraries/view-binding/migration
+  

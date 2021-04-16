@@ -8,11 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="textColor">#0C0C0C</color>
-    <color name="textRegularColor">#555555</color>
+    <color name="statusBar">#F9F9F9</color>
+    <color name="textTitleColor">#0C0C0C</color>
+    <color name="textColor">#555555</color>
     <color name="barBackground">#F9F9F9</color>
     <color name="barSeparator">#B2B2B2</color>
     <color name="bannerBackground">#FD5C63</color>
+    <color name="bannerText">#FFFFFF</color>
     <color name="dotOffline">#FD5C63</color>
     <color name="dotOnline">#A4C639</color>
+    <color name="taskBackground">#FFFFFF</color>
 </resources>

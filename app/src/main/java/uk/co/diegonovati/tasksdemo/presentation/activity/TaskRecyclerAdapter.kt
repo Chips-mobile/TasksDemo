@@ -7,7 +7,7 @@ import uk.co.diegonovati.tasksdemo.domain.entities.Task
 import uk.co.diegonovati.tasksdemo.presentation.components.ComponentTask
 
 class TaskRecyclerAdapter(
-    context: Context
+    val context: Context
 ) : BaseRecyclerAdapter<Task, ComponentTask>(context, Task::class.java) {
 
     fun setTaskList(taskList: List<Task>) {

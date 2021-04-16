@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.SortedList
 import androidx.recyclerview.widget.SortedListAdapterCallback
 import java.util.*
 
-abstract class BaseRecyclerAdapter<ItemType, in CellType : View>(val context: Context, val itemTypeClass: Class<ItemType>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Iterable<ItemType> where ItemType : Comparable<ItemType>, ItemType : Any {
+abstract class BaseRecyclerAdapter<ItemType, in CellType : View>(
+    private val context: Context,
+    private val itemTypeClass: Class<ItemType>
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), Iterable<ItemType> where ItemType : Comparable<ItemType>, ItemType : Any {
 
     class ItemHolder(val cell: View) : RecyclerView.ViewHolder(cell)
 
