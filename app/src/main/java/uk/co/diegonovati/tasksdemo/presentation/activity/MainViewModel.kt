@@ -12,6 +12,11 @@ import uk.co.diegonovati.tasksdemo.domain.usecases.UseCaseTaskFilter
 import uk.co.diegonovati.tasksdemo.domain.usecases.UseCaseTaskList
 import javax.inject.Inject
 
+data class ModelData(
+    val data: Result<TaskData, Exception>,
+    val reloaded: Boolean
+)
+
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
@@ -21,7 +26,7 @@ class MainViewModel @Inject constructor(
 
     val filterBy = mutableListOf(TaskType.General, TaskType.Hydration, TaskType.Medication, TaskType.Nutrition)
 
-    fun getData(): LiveData<Result<TaskData, Exception>> = data
+    fun getData(): LiveData<ModelData> = data
 
     fun doLoad() {
         loadData()
@@ -36,8 +41,8 @@ class MainViewModel @Inject constructor(
         filterData()
     }
 
-    private val data: MutableLiveData<Result<TaskData, Exception>> by lazy {
-        MutableLiveData<Result<TaskData, Exception>>().also {
+    private val data: MutableLiveData<ModelData> by lazy {
+        MutableLiveData<ModelData>().also {
             loadData()
         }
     }
@@ -45,14 +50,14 @@ class MainViewModel @Inject constructor(
     private fun loadData() {
         println("********** loadData()")
         useCaseTaskList.invoke(filterBy) {
-            data.value = it
+            data.value = ModelData(it, true)
         }
     }
 
     private fun filterData() {
         println("********** filterData()")
         useCaseTaskFilter.invoke(filterBy) {
-            data.value = it
+            data.value =  ModelData(it, false)
         }
     }
 }

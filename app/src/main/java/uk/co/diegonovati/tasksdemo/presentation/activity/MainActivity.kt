@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView()
 
         componentFilterBar.setFilterActiveList(mainViewModel.filterBy)
-
         componentFilterBar.setOnFilterStatusChanged { taskType, active ->
             mainViewModel.doFilter(taskType, active)
         }
@@ -34,11 +33,14 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.getData().observe(this, {
             swipeRefreshLayout.isRefreshing = false
-            componentBanner.hide()
-            it.fold({ taskData ->
+            it.data.fold({ taskData ->
                 taskRecyclerAdapter.setTaskList(taskData.taskList)
-                if (taskData.fromCache) {
-                    componentBanner.showDisconnected(taskData.lastUpdate)
+                if (it.reloaded) {
+                    if (taskData.fromCache) {
+                        componentBanner.showDisconnected(taskData.lastUpdate)
+                    } else {
+                        componentBanner.hide()
+                    }
                 }
             }) {
                 componentBanner.showError(getString(R.string.errorNoData))
