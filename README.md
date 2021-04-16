@@ -50,5 +50,9 @@ The UI has been changed a little trying to make for visible to the user that the
 
 The RecyclerView can be refreshed by swiping to the bottom.
 
-  
+The status of the connection is displayed on the left side in the title bar:
+
+  - dot green: the device is online, connected to internet
+  - dot red: the device is offline, disconnected from internet
  
+ If you refresh the data while the device is offline, a banner will appear containing the message that the device is offline and the last update time of the data displayed (data coming from the cache, of course) 

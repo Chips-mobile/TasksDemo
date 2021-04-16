@@ -9,4 +9,7 @@
         </attr>
         <attr name="active" format="boolean" />
     </declare-styleable>
+    <declare-styleable name="ComponentTitleBar">
+        <attr name="deviceOnline" format="boolean" />
+    </declare-styleable>
 </resources>

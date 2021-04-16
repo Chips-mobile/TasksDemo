@@ -26,3 +26,7 @@ data class LastUpdate(
     @PrimaryKey val id: Long,
     val lastUpdate: Date,
 )
+
+enum class ConnectionStatus {
+    Connected, Disconnected
+}

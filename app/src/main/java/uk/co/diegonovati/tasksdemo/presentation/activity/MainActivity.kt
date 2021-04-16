@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import uk.co.diegonovati.tasksdemo.R
+import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -46,6 +47,20 @@ class MainActivity : AppCompatActivity() {
                 componentBanner.showError(getString(R.string.errorNoData))
             }
         })
+
+        mainViewModel.getInternetConnectionStatus().observe(this, {
+            componentTitleBar.setDeviceOnline(it == ConnectionStatus.Connected)
+        })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mainViewModel.doStartConnectionMonitor()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mainViewModel.doStopConnectionMonitor()
     }
 
     private fun initRecyclerView() {

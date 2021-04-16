@@ -13,4 +13,6 @@
     <color name="barBackground">#F9F9F9</color>
     <color name="barSeparator">#B2B2B2</color>
     <color name="bannerBackground">#FD5C63</color>
+    <color name="dotOffline">#FD5C63</color>
+    <color name="dotOnline">#A4C639</color>
 </resources>
