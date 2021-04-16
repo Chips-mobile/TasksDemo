@@ -13,24 +13,13 @@ class TaskRecyclerAdapter(
     fun setTaskList(taskList: List<Task>) {
         items.clear()
         taskList.forEach { task -> items.add(task) }
-
-        println("********** TaskRecyclerAdapter.setTaskList: taskList.size = ${taskList.size}")
-        println("********** TaskRecyclerAdapter.setTaskList: items.size = ${items.size()}")
-        for (i in 1..(items.size()-1)) {
-            println("********** TaskRecyclerAdapter.setTaskList: item = ${items[i]}")
-        }
     }
 
     override fun onBindCell(cell: ComponentTask?, item: Task) {
-        println("********** TaskRecyclerAdapter.onBindCell: item = $item")
-
         cell?.setTask(item)
     }
 
     override fun onCreateCell(parent: ViewGroup?, viewType: Int): View {
-        println("********** TaskRecyclerAdapter.onCreateCell")
-
         return ComponentTask(context)
     }
-    //override fun onCreateCell(parent: ViewGroup?, viewType: Int): View = ComponentTask(context)
 }

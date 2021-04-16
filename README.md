@@ -40,3 +40,15 @@ Room has been used to persist the data received from the remote service.
 As an alternative to the database, the local data can be saved as a shared preference (just updating the dependencies in the AppModule file)  
 
 The current implementation of Room is for demonstration purpose only: the data could be saved as json string in a single line of a single table
+
+## UI
+The UI has been designed using the standard Android UI, but it has been decompose in components to simplify the management and the delegation of responsibilities.
+
+The background of the filter buttons has been created using png files for the different resolution while a vector image would have been preferred; unfortunately the conversion of the svg files to the xml drawable file had problems with the shadows.
+
+The UI has been changed a little trying to make for visible to the user that the images at the bottom of the activity are filters that can be activated.
+
+The RecyclerView can be refreshed by swiping to the bottom.
+
+  
+ 

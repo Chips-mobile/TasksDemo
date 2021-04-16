@@ -37,7 +37,8 @@ class DateConverter {
 
 @Database(
     entities = [(TaskModel::class), (LastUpdate::class)],
-    version = ProviderDatabase.databaseLatestVersion
+    version = ProviderDatabase.databaseLatestVersion,
+    exportSchema = false
 )
 @TypeConverters(DateConverter::class)
 abstract class TasksDemoDatabase : RoomDatabase() {
