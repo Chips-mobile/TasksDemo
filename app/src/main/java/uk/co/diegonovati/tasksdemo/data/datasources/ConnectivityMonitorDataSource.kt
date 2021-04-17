@@ -5,6 +5,10 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkRequest
 import android.os.Build
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 import uk.co.diegonovati.tasksdemo.domain.repositories.IChangeStateLister
 
@@ -35,13 +39,14 @@ class ConnectivityMonitorDataSource(
             connectivityManager.registerNetworkCallback(
                 builder.build(), object : ConnectivityManager.NetworkCallback() {
                     override fun onAvailable(network: Network) {
-                        changeStateLister?.stateChanges(ConnectionStatus.Connected)
+                        notifyStateChange(ConnectionStatus.Connected)
                     }
                     override fun onLost(network: Network) {
-                        changeStateLister?.stateChanges(ConnectionStatus.Disconnected)
+                        notifyStateChange(ConnectionStatus.Disconnected)
                     }
                 }
             )
+            notifyStateChange(if (connectivityManager.isDefaultNetworkActive) ConnectionStatus.Connected else ConnectionStatus.Disconnected)
             monitorStarted = true
         }
     }
@@ -54,6 +59,14 @@ class ConnectivityMonitorDataSource(
             val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             connectivityManager.unregisterNetworkCallback(ConnectivityManager.NetworkCallback())
             monitorStarted = false
+        }
+    }
+
+    private fun notifyStateChange(connectionStatus: ConnectionStatus) {
+        GlobalScope.launch {
+            withContext(Dispatchers.Main) {
+                changeStateLister?.stateChanges(connectionStatus)
+            }
         }
     }
 }

@@ -6,10 +6,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.github.kittinunf.result.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 import uk.co.diegonovati.tasksdemo.domain.entities.TaskData
 import uk.co.diegonovati.tasksdemo.domain.entities.TaskType
@@ -88,11 +84,7 @@ class MainViewModel @Inject constructor(
     private fun monitorConnectionCallback() {
         useCaseConnectivitySetChangeListener.invoke(object : IChangeStateLister{
             override fun stateChanges(connectionStatus: ConnectionStatus) {
-                GlobalScope.launch {
-                    withContext(Dispatchers.Main) {
-                        internetConnectionStatus.value = connectionStatus
-                    }
-                }
+                internetConnectionStatus.value = connectionStatus
             }
         }) {}
     }
