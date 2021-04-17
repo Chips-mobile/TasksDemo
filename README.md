@@ -1,4 +1,4 @@
-# TasksDemo
+# Tasks Demo
 Android Kotlin App using Clear Architecture, MVVM, unit testing and UI testing
 
 The App has been developed using 
@@ -63,4 +63,43 @@ The status of the connection is displayed on the left side in the title bar:
  to worrier about this deprecation.
  
  Reference: https://developer.android.com/topic/libraries/view-binding/migration
+ 
+ # Screenshots
+ Here is how the App is displayed on the device when it's online:
+ 
+![Device Online](./doc/DeviceOnline.png)
+
+ and now when offline:
+
+![Device Offline](./doc/DeviceOffline.png)
+
+ the connection status is displayed in the right side of the App bar:
+
+![Device Online vs Device Offline](./doc/OnlineOfflineStatus.png)
+
+### Realoding from backend
+To relaod the data from the backend, swipe downwards the list and wait:
+
+![Device Reloading](./doc/DeviceReloading.png)
   
+but, if the device is offline, a banner will appear containing the message that the data displayed are not coming from the backend but from an internal cache, with the date and time of the last loading from the backend:
+
+![Device Reloading Offline](./doc/DeviceReloadingOffline.png)
+
+### First launch without internet connection
+If the device in not connected at the first launch, when there are no data cached, the following error message is displayed:
+
+![Device Error](./doc/DeviceError.png)
+
+## Fiters
+The data displayed can be filtered using the buttons on the bottom bar. They work on the data displayed without any reload from the backend, so they can be used when the device is online and offline.
+
+When a button is in the 'down' status, the corresponding items in the list will be hidden
+
+### Without active filters
+
+![Device Without Filters](./doc/DeviceWithoutFilters.png)
+
+### With active filters
+
+![Device With Filters](./doc/DeviceWithFilters.png)
