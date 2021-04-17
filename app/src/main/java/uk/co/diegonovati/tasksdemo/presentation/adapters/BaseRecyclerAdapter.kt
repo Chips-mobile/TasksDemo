@@ -1,4 +1,4 @@
-package uk.co.diegonovati.tasksdemo.presentation.activity
+package uk.co.diegonovati.tasksdemo.presentation.adapters
 
 import android.content.Context
 import android.view.View
