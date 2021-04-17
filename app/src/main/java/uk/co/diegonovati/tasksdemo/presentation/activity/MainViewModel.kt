@@ -1,11 +1,16 @@
 package uk.co.diegonovati.tasksdemo.presentation.activity
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.github.kittinunf.result.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 import uk.co.diegonovati.tasksdemo.domain.entities.TaskData
 import uk.co.diegonovati.tasksdemo.domain.entities.TaskType
@@ -19,7 +24,7 @@ data class ModelData(
 )
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+open class MainViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
     private val useCaseTaskList: UseCaseTaskList,
     private val useCaseTaskFilter: UseCaseTaskFilter,
@@ -87,5 +92,14 @@ class MainViewModel @Inject constructor(
                 internetConnectionStatus.value = connectionStatus
             }
         }) {}
+    }
+
+    @VisibleForTesting
+    internal fun updateInternetConnectionStatus(connectionStatus: ConnectionStatus) {
+        GlobalScope.launch {
+            withContext(Dispatchers.Main) {
+                internetConnectionStatus.value = connectionStatus
+            }
+        }
     }
 }

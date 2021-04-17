@@ -21,7 +21,7 @@ android {
         // Staging backend
         buildConfigField 'String', 'backendUrl', '"https://adam-deleteme.s3.amazonaws.com"'
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "uk.co.diegonovati.tasksdemo.presentation.utils.TasksDemoTestRunner"
     }
 
     buildTypes {
@@ -39,6 +39,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    hilt {
+        enableTransformForLocalTests = true
     }
 }
 
@@ -102,10 +105,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    def test_core = "1.2.0"
+    androidTestImplementation "androidx.test:core-ktx:$test_core"
+
     // Mockito
     def mockito = '3.9.0'
+    def mockito_inline = '2.13.0'
     testImplementation "org.mockito:mockito-core:$mockito"
-    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    testImplementation "org.mockito:mockito-inline:$mockito_inline"
     androidTestImplementation "org.mockito:mockito-android:$mockito"
     androidTestImplementation "org.mockito:mockito-core:$mockito"
 
@@ -116,5 +123,6 @@ dependencies {
 
     // Dagger Hilt
     androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt"
     kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt"
 }

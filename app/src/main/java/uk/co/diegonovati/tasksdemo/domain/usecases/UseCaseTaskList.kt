@@ -11,7 +11,7 @@ import uk.co.diegonovati.tasksdemo.domain.repositories.ITasksLocalRepository
 import uk.co.diegonovati.tasksdemo.domain.repositories.ITasksRemoteRepository
 import java.util.*
 
-class UseCaseTaskList(
+open class UseCaseTaskList(
     private val tasksLocalRepository: ITasksLocalRepository,
     private val tasksRemoteRepository: ITasksRemoteRepository,
 ): UseCase<TaskData, List<TaskType>>() {

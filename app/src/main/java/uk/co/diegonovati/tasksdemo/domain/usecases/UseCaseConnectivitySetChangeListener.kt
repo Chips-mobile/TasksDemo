@@ -4,7 +4,7 @@ import com.github.kittinunf.result.Result
 import uk.co.diegonovati.tasksdemo.domain.repositories.IChangeStateLister
 import uk.co.diegonovati.tasksdemo.domain.repositories.IConnectivityMonitorRepository
 
-class UseCaseConnectivitySetChangeListener(
+open class UseCaseConnectivitySetChangeListener(
     private val connectivityMonitorRepository: IConnectivityMonitorRepository,
 ): UseCase<Unit, IChangeStateLister>() {
     override suspend fun run(params: IChangeStateLister): Result<Unit, Exception> {

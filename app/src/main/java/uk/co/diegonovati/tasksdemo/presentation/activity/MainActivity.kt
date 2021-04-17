@@ -2,6 +2,7 @@ package uk.co.diegonovati.tasksdemo.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,11 +13,11 @@ import uk.co.diegonovati.tasksdemo.R
 import uk.co.diegonovati.tasksdemo.data.models.ConnectionStatus
 import uk.co.diegonovati.tasksdemo.presentation.adapters.TaskRecyclerAdapter
 
-
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val mainViewModel: MainViewModel by viewModels()
+
     private lateinit var taskRecyclerAdapter: TaskRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,4 +80,7 @@ class MainActivity : AppCompatActivity() {
         taskRecyclerAdapter = TaskRecyclerAdapter(this)
         mainRecyclerView.adapter = taskRecyclerAdapter
     }
+
+    @VisibleForTesting
+    fun getViewModel(): MainViewModel = mainViewModel
 }

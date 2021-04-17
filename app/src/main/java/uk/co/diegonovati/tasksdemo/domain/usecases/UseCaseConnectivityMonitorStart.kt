@@ -3,7 +3,7 @@ package uk.co.diegonovati.tasksdemo.domain.usecases
 import com.github.kittinunf.result.Result
 import uk.co.diegonovati.tasksdemo.domain.repositories.IConnectivityMonitorRepository
 
-class UseCaseConnectivityMonitorStart(
+open class UseCaseConnectivityMonitorStart(
     private val connectivityMonitorRepository: IConnectivityMonitorRepository,
 ): UseCase<Unit, UseCase.None>() {
 

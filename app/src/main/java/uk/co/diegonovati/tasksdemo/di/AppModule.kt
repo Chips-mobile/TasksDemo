@@ -22,7 +22,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideProviderRetrofit() = ProviderRetrofit()
+    fun provideProviderRetrofit(): ProviderRetrofit = ProviderRetrofit()
 
     @Singleton
     @Provides
@@ -60,21 +60,21 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideUseCaseTaskList(tasksLocalRepository: ITasksLocalRepository, tasksRemoteRepository: ITasksRemoteRepository) = UseCaseTaskList(tasksLocalRepository, tasksRemoteRepository)
+    fun provideUseCaseTaskList(tasksLocalRepository: ITasksLocalRepository, tasksRemoteRepository: ITasksRemoteRepository): UseCaseTaskList = UseCaseTaskList(tasksLocalRepository, tasksRemoteRepository)
 
     @Singleton
     @Provides
-    fun provideUseCaseTaskFilter(tasksLocalRepository: ITasksLocalRepository) = UseCaseTaskFilter(tasksLocalRepository)
+    fun provideUseCaseTaskFilter(tasksLocalRepository: ITasksLocalRepository): UseCaseTaskFilter = UseCaseTaskFilter(tasksLocalRepository)
 
     @Singleton
     @Provides
-    fun provideUseCaseConnectivityMonitorStart(connectivityMonitorRepository: IConnectivityMonitorRepository) = UseCaseConnectivityMonitorStart(connectivityMonitorRepository)
+    fun provideUseCaseConnectivityMonitorStart(connectivityMonitorRepository: IConnectivityMonitorRepository): UseCaseConnectivityMonitorStart = UseCaseConnectivityMonitorStart(connectivityMonitorRepository)
 
     @Singleton
     @Provides
-    fun provideUseCaseConnectivityMonitorStop(connectivityMonitorRepository: IConnectivityMonitorRepository) = UseCaseConnectivityMonitorStop(connectivityMonitorRepository)
+    fun provideUseCaseConnectivityMonitorStop(connectivityMonitorRepository: IConnectivityMonitorRepository): UseCaseConnectivityMonitorStop = UseCaseConnectivityMonitorStop(connectivityMonitorRepository)
 
     @Singleton
     @Provides
-    fun provideUseCaseConnectivitySetChangeListener(connectivityMonitorRepository: IConnectivityMonitorRepository) = UseCaseConnectivitySetChangeListener(connectivityMonitorRepository)
+    fun provideUseCaseConnectivitySetChangeListener(connectivityMonitorRepository: IConnectivityMonitorRepository): UseCaseConnectivitySetChangeListener = UseCaseConnectivitySetChangeListener(connectivityMonitorRepository)
 }

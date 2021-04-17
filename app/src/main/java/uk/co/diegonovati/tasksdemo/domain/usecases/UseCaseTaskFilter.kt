@@ -8,7 +8,7 @@ import uk.co.diegonovati.tasksdemo.domain.entities.filterBy
 import uk.co.diegonovati.tasksdemo.domain.entities.toTaskData
 import uk.co.diegonovati.tasksdemo.domain.repositories.ITasksLocalRepository
 
-class UseCaseTaskFilter(
+open class UseCaseTaskFilter(
     private val tasksLocalRepository: ITasksLocalRepository,
 ): UseCase<TaskData, List<TaskType>>() {
 

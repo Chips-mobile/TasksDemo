@@ -1,3 +1,5 @@
+![Tasks Demo](./doc/TasksDemo.png)
+
 # Tasks Demo
 Android Kotlin App using Clear Architecture, MVVM, unit testing and UI testing
 
@@ -63,6 +65,12 @@ The status of the connection is displayed on the left side in the title bar:
  to worrier about this deprecation.
  
  Reference: https://developer.android.com/topic/libraries/view-binding/migration
+ 
+ # Tests
+ There are two types of tests:
+ 
+ - Unit tests (under 'test' and 'androidTest/data.datasources')
+ - UI tests using Espresso (under 'androidTest/presentation/MainView.kt')
  
  # Screenshots
  Here is how the App is displayed on the device when it's online:
