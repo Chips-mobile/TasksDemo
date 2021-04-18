@@ -66,11 +66,14 @@ The status of the connection is displayed on the left side in the title bar:
  
  Reference: https://developer.android.com/topic/libraries/view-binding/migration
  
- # Tests
+ # Tests and CI
  There are two types of tests:
  
  - Unit tests (under 'test' and 'androidTest/data.datasources')
  - UI tests using Espresso (under 'androidTest/presentation/MainView.kt')
+ 
+ All the tests are executed by GitHub Action each time there is a pull on the master branch. If all the tests are 
+ successful, the debug version of the App is published as Artifact.
  
  # Screenshots
  Here is how the App is displayed on the device when it's online:
